@@ -1,0 +1,120 @@
+OUTPUT FOR Prolog CW-1
+
+> swipl monster.pl 
+
+Welcome to SWI-Prolog (threaded, 64 bits, version 9.0.4)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit https://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+1. ?- monster(X, ghost). 
+X = annihilape.
+
+2. ?- monster(flamigo, X).
+X = fighting.
+
+3. ?- move(X, normal).     
+X = bodySlam ;
+X = quickAttack ;
+X = megaKick ;
+X = bodySlam ;
+X = tackle ;
+X = takeDown ;
+X = bodySlam.
+
+4. ?- move(lick, Y).   
+Y = ghost.
+
+5. ?- monsterMove(X ,lowKick). 
+X = annihilape ;
+X = espathra ;
+X = flamigo.
+
+6. ?- typeEffectiveness(ordinary,X,Y).
+X = physchic,
+Y = ghost ;
+X = physchic,
+Y = normal ;
+X = Y, Y = fighting ;
+X = dark,
+Y = normal ;
+X = ghost,
+Y = fighting ;
+X = normal,
+Y = physchic ;
+X = normal,
+Y = fighting ;
+X = normal,
+Y = dark ;
+X = Y, Y = normal.
+
+7. ?- moreEffectiveThan(strong,superweak).
+true.
+
+8. ?- moreEffectiveThan(superweak,strong).
+false.
+
+9. ?- moreEffectiveThan(strong, X).        
+X = ordinary ;
+X = weak ;
+X = superweak ;
+false.
+
+10. ?- monsterMoveMatch(normal, X, Y, bodySlam).
+X = annihilape,
+Y = lechonk ;
+X = annihilape,
+Y = mabosstiff ;
+X = lechonk,
+Y = annihilape ;
+X = lechonk,
+Y = mabosstiff ;
+X = mabosstiff,
+Y = annihilape ;
+X = mabosstiff,
+Y = lechonk ;
+false.
+
+11. ?- moreEffectiveMoveType(payback,Y,dark). 
+Y = psyBeam ;
+Y = zenHeadbutt ;
+false.
+
+12. ?- moreEffectiveMoveType(X,payback,dark). 
+X = lowkick ;
+X = bodySlam ;
+X = quickAttack ;
+X = megaKick ;
+X = closeCombat ;
+X = tackle ;
+X = takeDown ;
+false.
+
+13. ?- moreEffectiveMove(annihilape, X, lechonk, bodySlam).
+X = lowkick ;
+X = bodySlam ;
+X = psyBeam ;
+X = quickAttack ;
+X = payback ;
+X = megaKick ;
+X = closeCombat ;
+X = tackle ;
+X = takeDown ;
+X = zenHeadbutt ;
+X = snarl ;
+X = bite ;
+false.
+
+14. ?- moreEffectiveMove(annihilape, lowkick, lechonk, Y).        
+Y = lowkick ;
+Y = bodySlam ;
+Y = psyBeam ;
+Y = quickAttack ;
+Y = megaKick ;
+Y = closeCombat ;
+Y = tackle ;
+Y = takeDown ;
+Y = zenHeadbutt ;
+false.
